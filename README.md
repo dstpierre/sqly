@@ -102,7 +102,7 @@ You may create the scan function inline for query result that are not re-used:
 
 ```go
 func getFullNames() (names []string, err error) {
-	query := "SELECT fname + ' '  lname FROM people;"
+	query := "SELECT fname || ' ' || lname FROM people;"
 	scan := func(row sqly.Scanner, s *string) error {
 		return row.Scan(s)
 	}
@@ -119,7 +119,7 @@ Here's how you can perform the same as above without handling the scan:
 
 ```go
 func execDynamicQuery() (names []string, err error) {
-	query := "SELECT fname + ' '  lname as full_name FROM people;"
+	query := "SELECT fname || ' '  || lname as full_name FROM people;"
 	rows, err := sqly.ExecuteDynamicQuery(query)
 	if err != nil {
 		return

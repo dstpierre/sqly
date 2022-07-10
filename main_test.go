@@ -16,11 +16,11 @@ var (
 )
 
 func TestMain(m *testing.M) {
-	os.Remove("testdata/test.db")
+	os.Remove("test.db")
 
 	var err error
 
-	db, err = sql.Open("sqlite3", "./testdata/test.db")
+	db, err = sql.Open("sqlite3", "test.db")
 	if err != nil {
 		log.Fatal(err)
 	}

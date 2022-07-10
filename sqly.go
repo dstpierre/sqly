@@ -21,7 +21,7 @@
 // The library also allow the run on-the-fly / dynamic query and receive
 // a []map[string]any as rows, where the key of the map is the field names.
 //
-//    query := "SELECT fname + ' ' + lname as full_name FROM people"
+//    query := "SELECT fname || ' ' || lname as full_name FROM people"
 //    rows, err := sqly.ExecuteDynamicQuery(query)
 //    fmt.Println(rows[0]["full_name"])
 package sqly
